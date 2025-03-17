@@ -206,14 +206,33 @@ h1 {
   margin: 0.5rem auto 0;
 }
 
-/* Events Grid */
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+/*EVENT GRID */
+h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.events-container {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.events-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 1.5rem;
+  padding: 1rem 0.5rem;
+  scrollbar-width: none;  /* For Firefox */
+}
+
+.events-scroll::-webkit-scrollbar {
+  display: none;  /* For Chrome, Safari, and Opera */
 }
 
 .event-card {
+  flex: 0 0 300px;
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
@@ -249,10 +268,53 @@ h1 {
   color: #666;
 }
 
-.event-card-details span {
+.btn {
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.scroll-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.scroll-left {
+  left: 10px;
+}
+
+.scroll-right {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .event-card {
+    flex: 0 0 260px;
+  }
 }
 
 /* Speakers */

@@ -96,93 +96,107 @@
     
         <!-- Events Section -->
         <section id="events" class="container">
-            
-            <h2 class="section-title">Featured Events</h2>
-            <div class="events-grid">
-                <!-- Event 1 -->
-                <div class="event-card">
-                    <img src="/images/Hackathon.jpg" alt="Tech Hackathon">
-                    <div class="event-card-body">
-                        <h3 class="event-card-title">Tech Hackathon</h3>
-                        <p>Build innovative solutions to real-world problems in this 24-hour coding marathon.</p>
-                        <div class="event-card-details">
-                            <span>📅 April 15</span>
-                            <span>🕒 9:00 AM</span>
+            <section id="events" class="container">
+                <div class="controls">
+                    <button class="previous" onclick="window.scrollBy(-100, 0)">
+                      <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                      </svg>
+                    </button>
+                    <button class="next" onclick="window.scrollBy(100, 0)">
+                      <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="container">
+                    <h2>Upcoming Events</h2>
+                    
+                    <div class="events-container">
+                      <button class="scroll-btn scroll-left" id="scrollLeft">&#10094;</button>
+                      <div class="events-scroll" id="eventsScroll">
+                        <div class="event-card">
+                          <img src="/images/Hackathon.jpg" alt="Tech Hackathon">
+                          <div class="event-card-body">
+                            <h3 class="event-card-title">Tech Hackathon</h3>
+                            <p>Build innovative solutions to real-world problems in this 24-hour coding marathon.</p>
+                            <div class="event-card-details">
+                              <span>📅 April 15</span>
+                              <span>🕒 9:00 AM</span>
+                            </div>
+                            <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
+                          </div>
                         </div>
-                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
-                    </div>
-                </div>
-                
-                <!-- Event 2 -->
-                <div class="event-card">
-                    <img src="/images/Start-up.jpg" alt="Startup Pitch Competition">
-                    <div class="event-card-body">
-                        <h3 class="event-card-title">Startup Pitch</h3>
-                        <p>Pitch your business idea to investors and win funding to turn your vision into reality.</p>
-                        <div class="event-card-details">
-                            <span>📅 April 16</span>
-                            <span>🕒 2:00 PM</span>
+                        
+                        <div class="event-card">
+                          <img src="/images/Start-up.jpg" alt="Startup Pitch Competition">
+                          <div class="event-card-body">
+                            <h3 class="event-card-title">Startup Pitch</h3>
+                            <p>Pitch your business idea to investors and win funding to turn your vision into reality.</p>
+                            <div class="event-card-details">
+                              <span>📅 April 16</span>
+                              <span>🕒 2:00 PM</span>
+                            </div>
+                            <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
+                          </div>
                         </div>
-                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
-                    </div>
-                </div>
-                
-                <!-- Event 3 -->
-                <div class="event-card">
-                    <img src="/images/Cultural.jpg" alt="Cultural Show">
-                    <div class="event-card-body">
-                        <h3 class="event-card-title">Cultural Show</h3>
-                        <p>Experience diverse performances celebrating the rich cultural tapestry of our campus.</p>
-                        <div class="event-card-details">
-                            <span>📅 April 17</span>
-                            <span>🕒 6:00 PM</span>
+                        
+                        <div class="event-card">
+                          <img src="/images/Cultural.jpg" alt="Cultural Show">
+                          <div class="event-card-body">
+                            <h3 class="event-card-title">Cultural Show</h3>
+                            <p>Experience diverse performances celebrating the rich cultural tapestry of our campus.</p>
+                            <div class="event-card-details">
+                              <span>📅 April 17</span>
+                              <span>🕒 6:00 PM</span>
+                            </div>
+                            <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
+                          </div>
                         </div>
-                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
-                    </div>
-                </div>
-                
-                <!-- Event 4 -->
-                <div class="event-card">
-                    <img src="/images/Research.jpg" alt="Research Showcase">
-                    <div class="event-card-body">
-                        <h3 class="event-card-title">Research Showcase</h3>
-                        <p>Discover groundbreaking research projects from students and faculty members.</p>
-                        <div class="event-card-details">
-                            <span>📅 April 16</span>
-                            <span>🕒 10:00 AM</span>
+                        
+                        <div class="event-card">
+                          <img src="/images/Research.jpg" alt="Research Showcase">
+                          <div class="event-card-body">
+                            <h3 class="event-card-title">Research Showcase</h3>
+                            <p>Discover groundbreaking research projects from students and faculty members.</p>
+                            <div class="event-card-details">
+                              <span>📅 April 16</span>
+                              <span>🕒 10:00 AM</span>
+                            </div>
+                            <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
+                          </div>
                         </div>
-                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
-                    </div>
-                </div>
-                
-                <!-- Event 5 -->
-                <div class="event-card">
-                    <img src="/images/Desgin.jpg" alt="Design Workshop">
-                    <div class="event-card-body">
-                        <h3 class="event-card-title">Design Workshop</h3>
-                        <p>Learn cutting-edge design techniques from industry professionals in this hands-on workshop.</p>
-                        <div class="event-card-details">
-                            <span>📅 April 15</span>
-                            <span>🕒 1:00 PM</span>
+                        
+                        <div class="event-card">
+                          <img src="/images/Desgin.jpg" alt="Design Workshop">
+                          <div class="event-card-body">
+                            <h3 class="event-card-title">Design Workshop</h3>
+                            <p>Learn cutting-edge design techniques from industry professionals in this hands-on workshop.</p>
+                            <div class="event-card-details">
+                              <span>📅 April 15</span>
+                              <span>🕒 1:00 PM</span>
+                            </div>
+                            <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
+                          </div>
                         </div>
-                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
-                    </div>
-                </div>
-                
-                <!-- Event 6 -->
-                <div class="event-card">
-                    <img src="/images/Career.jpg" alt="Career Fair">
-                    <div class="event-card-body">
-                        <h3 class="event-card-title">Career Fair</h3>
-                        <p>Connect with top employers and explore internship and job opportunities in various fields.</p>
-                        <div class="event-card-details">
-                            <span>📅 April 17</span>
-                            <span>🕒 11:00 AM</span>
+                        
+                        <div class="event-card">
+                          <img src="/images/Career.jpg" alt="Career Fair">
+                          <div class="event-card-body">
+                            <h3 class="event-card-title">Career Fair</h3>
+                            <p>Connect with top employers and explore internship and job opportunities in various fields.</p>
+                            <div class="event-card-details">
+                              <span>📅 April 17</span>
+                              <span>🕒 11:00 AM</span>
+                            </div>
+                            <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
+                          </div>
                         </div>
-                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Learn More</a>
+                      </div>
+                      <button class="scroll-btn scroll-right" id="scrollRight">&#10095;</button>
                     </div>
-                </div>
-            </div>
+                  </div> 
+           
         </section>
     
         <!-- Speakers Section -->

@@ -310,7 +310,7 @@
                     Secure your spot at Campus Fest 2025! Registration includes access to all events, workshops, and networking sessions.
                 </p>
                 
-                <form>
+                <form id="registrationForm">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
@@ -329,7 +329,7 @@
                         
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control">
+                            <input type="tel" id="phone" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
@@ -339,13 +339,13 @@
                         
                         <div class="form-group">
                             <label for="major">Major/Field of Study</label>
-                            <input type="text" id="major" class="form-control">
+                            <input type="text" id="major" class="form-control" required>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="events">Events You're Interested In (Select all that apply)</label>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; margin-top: 0.5rem;">
+                        <div id="eventsList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; margin-top: 0.5rem;">
                             <label style="display: flex; align-items: center; gap: 0.5rem;">
                                 <input type="checkbox" name="events" value="hackathon"> Tech Hackathon
                             </label>
@@ -379,7 +379,7 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h3>Campus Fest 2025</h3>
+                        <h3>UniHub 2025</h3>
                         <p>The biggest student-led event of the year, showcasing innovation, talent, and creativity across disciplines.</p>
                         <div class="social-links">
                             <a href="#"><span>FB</span></a>
@@ -391,7 +391,7 @@
                     
                     <div class="footer-section">
                         <h3>Contact Info</h3>
-                        <p>Email: campusfest@university.edu</p>
+                        <p>Email: UniHub@university.edu</p>
                         <p>Phone: (123) 456-7890</p>
                         <p>Location: University Student Center, Main Campus</p>
                     </div>
@@ -412,6 +412,44 @@
             </div>
         </footer>
     </main>      
-    <script src=""></script> 
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                college: document.getElementById('university').value,
+                email: document.getElementById('email').value,
+                phone_number: document.getElementById('phone').value,
+                field_of_study: document.getElementById('major').value,
+                events: Array.from(document.querySelectorAll('input[name="events"]:checked'))
+                    .map(checkbox => checkbox.value)
+            };
+        
+            try {
+                const response = await fetch('http://localhost:3000/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+        
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Registration successful!');
+                    document.getElementById('registrationForm').reset();
+                } else {
+                    alert('Registration failed: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred during registration');
+            }
+        });
+        </script>
+    <script src="/js/.js"></script> 
 </body>
 </html>

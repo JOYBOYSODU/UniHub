@@ -9,30 +9,30 @@
 <body>
   <div class="container">
     <div class="sign-in-section">
-      <div class="sign-in-box">
-        <h2 class="title">STUDENT REGISTRATION</h2>
-       
-        <form action="index.html" method="GET" class="form"></form>
-        <div class="input-group">
-          <label for="name" class="sr-only"> </label>
-          <input id="name" name="email" type="email" required placeholder=" Create User ID" class="input">
-        </div>
+      <div id="signup-form" class="sign-in-box hidden">
+        <h2 class="title">Register</h2>
+        <p class="subtitle">Create a new account</p>
+        <form class="form">
           <div class="input-group">
-            <label for="email" class="sr-only">Email address</label>
-            <input id="email" name="email" type="email" required placeholder="Email address" class="input">
+            <label for="signup-name" class="sr-only">Full name</label>
+            <input id="signup-name" name="name" type="text" required placeholder="Full name" class="input">
           </div>
           <div class="input-group">
-            <label for="password" class="sr-only">Password</label>
-            <input id="password" name="password" type="password" required placeholder="Password" class="input">
+            <label for="signup-phone" class="sr-only">Phone number</label>
+            <input id="signup-phone" name="phone" type="tel" required placeholder="Phone number" class="input">
+          </div>
+          <div class="input-group">
+            <label for="signup-email" class="sr-only">Email address</label>
+            <input id="signup-email" name="email" type="email" required placeholder="Email address" class="input">
+          </div>
+          <div class="input-group">
+            <label for="signup-password" class="sr-only">Password</label>
+            <input id="signup-password" name="password" type="password" required placeholder="Password" class="input">
           </div>
           <div>
-            <button type="submit" class="submit-button">Sign up</button>
+            <button type="submit" class="submit-button">Register</button>
           </div>
-        
-      </form>
-        <div class="footer-text">
-          Already have an account? <a href="/components/signin.html" class="#">Sign in</a>
-        </div>
+        </form>
       </div>
     </div>
 

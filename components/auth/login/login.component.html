@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+  <title>UniHub - Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            'primary': {
+              100: '#EBE5FF',
+              200: '#D4C4FF',
+              300: '#B69CFF',
+              500: '#6025C0',
+              700: '#4A0A91',
+              800: '#543FCC', // Added new color for sign up button
+            },
+            'off-white': '#F8F8F8',
+            'lavender-light': '#E6E1FF',
+            'lavender-hover': '#D4C4FF'
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwind">
+    @layer utilities {
+      .bg-gradient-primary {
+        background: linear-gradient(135deg, #6025C0 0%, #4A0A91 100%);
+      }
+      
+      .bg-gradient-buttons {
+        background: linear-gradient(135deg, rgba(182, 156, 255, 0.2) 0%, rgba(212, 196, 255, 0.3) 100%);          
+      }
+      
+      /* Triple gradient for left container - Updated for darker shades */
+      .bg-triple-gradient {
+        background: 
+          /* Left gradient (starts from left, transitions till mid, then slightly below center) */
+          linear-gradient(140deg,  
+            rgba(255, 255, 255, 0.4) 5%,  
+            rgba(107, 0, 199, 0.75) 25%,  
+            rgba(176, 140, 82, 0.9) 40%, /* Yellow more prominent */
+            rgba(138, 92, 53, 0.8) 55%,  
+            rgba(0, 0, 0, 0.85) 75%,  
+            rgba(0, 0, 0, 1) 92%),  /* Ends before bottom */
+          
+          /* Right gradient (unchanged, starts from right) */
+          linear-gradient(220deg,  
+            rgba(255, 255, 255, 0.4) 8%,  
+            rgba(176, 140, 82, 0.8) 28%,  
+            rgba(84, 63, 204, 0.85) 48%,  /* Updated to use the requested color */
+            rgba(0, 0, 0, 0.9) 70%,  
+            rgba(0, 0, 0, 1) 85%),  
+
+          /* Bottom gradient (smooth black blending below center) */
+          radial-gradient(ellipse at 50% 120%,  
+            rgba(0, 0, 0, 1) 20%,  
+            rgba(25, 15, 35, 0.98) 40%,  
+            rgba(57, 4, 83, 0.95) 60%,  
+            rgba(95, 45, 128, 0.9) 85%);
+        
+        background-blend-mode: overlay, overlay, multiply;
+        border-radius: 20px;
+        
+        /* Apply blur only to background */
+        backdrop-filter: blur(158.56px);
+      }
+
+      /* Added chakra symbols background effect */
+      .chakra-symbols {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.2)' stroke-width='1'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+      
+      .transition-bg {
+        transition: background-color 0.3s ease;
+      }
+      
+      /* Removing the underline hover effect */
+      .hover-underline:hover {
+        text-decoration: none;
+      }
+      
+      .container-merge {
+        position: relative;
+      }
+      
+      /* UPDATED CONTAINER MERGE STYLES */
+      @media (max-width: 768px) {
+        /* Add margin to create space between containers */
+        .container-merge {
+          margin-top: 20px;
+          border-radius: 20px;
+          position: relative;
+          z-index: 20;
+        }
+        
+        /* Create a gradient connection between containers */
+        .bg-triple-gradient {
+          position: relative;
+        }
+        
+        .bg-triple-gradient::after {
+          content: '';
+          position: absolute;
+          bottom: -20px;
+          left: 0;
+          right: 0;
+          height: 40px;
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(192, 172, 214, 0.8) 100%);
+          z-index: 10;
+          border-radius: 0 0 20px 20px;
+        }
+        
+        /* Create a shadow on the white container to help with the blend */
+        .bg-white {
+          box-shadow: 0 -10px 15px -5px rgba(25, 7, 34, 0.2);
+        }
+        
+        /* Adjust the content spacing to prevent overlap */
+        .content-container {
+          gap: 0;
+          overflow: visible;
+        }
+        
+        /* Add some padding to the bottom of the first container */
+        .bg-triple-gradient {
+          padding-bottom: 30px;
+        }
+      }
+      
+      /* Fixed height for 1920x1080 screens */
+      @media (min-width: 1024px) and (min-height: 768px) {
+        .vh-custom {
+          height: 100vh;
+          max-height: 1080px;
+        }
+        
+        .content-container {
+          max-height: calc(100vh - 40px);
+        }
+      }
+    }
+  </style>
+</head>
+
+
+<body class="bg-off-white font-poppins">
+
+  <div class="flex vh-custom justify-center items-center p-4 mt-12 ">
+    
+      
+      
+      
+      <!-- Right Container - Login Form -->
+      <div class="bg-white w-full md:w-2/5 p-6 lg:p-10 flex flex-col justify-center container-merge">
+        <div class="text-center mb-4 lg:mb-6">
+          <h2 class="text-xl lg:text-2xl font-semibold">Login Account</h2>
+          <p class="text-gray-600 mt-1 lg:mt-2 text-sm lg:text-base">Enter Your Credentials To Login</p>
+        </div>
+        
+        <!-- Google Sign In -->
+        <a href="#" class="block">
+          <button class="flex items-center justify-center gap-4 w-full border border-gray-300 rounded-xl py-2 lg:py-3 px-4 mb-4 lg:mb-6 hover:bg-gray-50 transition-all duration-300">
+            <!-- Google logo -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 186.69 190.5">
+              <g transform="translate(1184.583 765.171)">
+                <path d="M-1089.333-687.239v36.888h51.262c-2.251 11.863-9.006 21.908-19.137 28.662l30.913 23.986c18.011-16.625 28.402-41.044 28.402-70.052 0-6.754-.606-13.249-1.732-19.483z" fill="#4285f4"/>
+                <path d="M-1142.714-651.791l-6.972 5.337-24.679 19.223h0c15.673 31.086 47.796 52.561 85.03 52.561 25.717 0 47.278-8.486 63.038-23.033l-30.913-23.986c-8.486 5.715-19.31 9.179-32.125 9.179-24.765 0-45.806-16.712-53.34-39.226z" fill="#34a853"/>
+                <path d="M-1174.365-712.61c-6.494 12.815-10.217 27.276-10.217 42.689s3.723 29.874 10.217 42.689c0 .086 31.693-24.592 31.693-24.592-1.905-5.715-3.031-11.776-3.031-18.098s1.126-12.383 3.031-18.098z" fill="#fbbc05"/>
+                <path d="M-1089.333-727.244c14.028 0 26.497 4.849 36.455 14.201l27.276-27.276c-16.539-15.413-38.013-24.852-63.731-24.852-37.234 0-69.359 21.388-85.032 52.561l31.692 24.592c7.533-22.514 28.575-39.226 53.34-39.226z" fill="#ea4335"/>
+              </g>
+            </svg>
+            <span>Sign in with Google</span>
+          </button>
+        </a>
+        
+        <!-- Divider -->
+        <div class="flex items-center mb-4 lg:mb-6">
+          <div class="h-px bg-gray-300 flex-grow"></div>
+          <a href="#" class="px-3 lg:px-4 text-gray-500 text-xs lg:text-sm hover-underline">or continue with email</a>
+          <div class="h-px bg-gray-300 flex-grow"></div>
+        </div>
+        
+        <!-- Login Form -->
+        <form>
+          <div class="mb-3 lg:mb-4">
+            <label for="email" class="block text-gray-700 mb-1 lg:mb-2 text-sm lg:text-base">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter Email"
+              class="w-full px-3 lg:px-4 py-2 lg:py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+            />
+          </div>
+          
+          <div class="mb-1 lg:mb-2">
+            <label for="password" class="block text-gray-700 mb-1 lg:mb-2 text-sm lg:text-base">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter A Strong Password"
+              class="w-full px-3 lg:px-4 py-2 lg:py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+            />
+          </div>
+          
+          <div class="text-right mb-4 lg:mb-6">
+            <a href="#" class="text-gray-600 hover:text-primary-500 text-xs lg:text-sm">forgot password?</a>
+          </div>
+          
+          <button
+            type="submit"
+            class="w-full bg-primary-700 text-white py-2 lg:py-3 rounded-xl font-medium hover:bg-primary-500 transition duration-300"
+          >
+            Login
+          </button>
+        </form>
+        
+        <!-- Sign Up Link - Updated to use the specified color -->
+        <div class="mt-4 lg:mt-6 text-center">
+          <p class="text-gray-600 text-sm">
+            Don't Have A Account Yet? 
+            <a routerLink="/signup" class="text-[rgba(84,63,204,1)] font-medium ml-1 hover:underline">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</body>
+</html>

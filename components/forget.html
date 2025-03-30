@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/signin.css">
+</head>
+<body>
+    <div id="forgot-password-form" class="sign-in-box hidden">
+        <h2 class="title">Reset Password</h2>
+        <p class="subtitle">Enter your email to reset your password</p>
+        <form class="form">
+          <div class="input-group">
+            <label for="reset-email" class="sr-only">Email address</label>
+            <input id="reset-email" name="email" type="email" required placeholder="Email address" class="input">
+          </div>
+          <div>
+            <button type="submit" class="submit-button">Reset Password</button>
+          </div>
+          <div class="footer-text">
+            <a href="signin.html" onclick="showTab('login'); return false;">Back to login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+</body>
+</html>
